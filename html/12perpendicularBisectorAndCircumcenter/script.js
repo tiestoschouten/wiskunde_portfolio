@@ -3,6 +3,7 @@ const context = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
+let Q = new Point(100,100,10,"white");
 let A = new Point(200,200,20,"white");
 let B = new Point(600,300,20,"white");
 let C = new Point(100,500,20,"white");
@@ -40,21 +41,36 @@ function animate(){
   else AC.y = C.y + ((A.y - C.y)/2);
 
   l.defineLineWithTwoPoints(A,B);
-  l.draw(context);
 
   m.defineLineWithTwoPoints(A,C);
-  m.draw(context);
 
   n.defineLineWithTwoPoints(C,B);
+
+  o.slope = -1/l.slope;
+  o.intercept = AB.y - o.slope*AB.x;
+
+  p.slope = -1/m.slope;
+  p.intercept = AC.y - p.slope*AC.x;
+
+  q.slope = -1/n.slope;
+  q.intercept = CB.y - q.slope*CB.x;
+
+  Q.x = o.intersection(q).x;
+  Q.y = o.intersection(q).y;
+  let distance = Q.distanceToAnOtherPoint(B);
+
+  let circle = new Point(Q.x,Q.y,distance,"rgba(0,0,0,.1)");
+
+  circle.draw(context);
+
+
+  Q.draw(context);
+
+  l.draw(context);
+  m.draw(context);
   n.draw(context);
-
-  o.defineLineWithTwoPoints(A,CB);
   o.draw(context);
-
-  p.defineLineWithTwoPoints(B,AC);
   p.draw(context);
-
-  q.defineLineWithTwoPoints(C,AB);
   q.draw(context);
 
   A.draw(context);

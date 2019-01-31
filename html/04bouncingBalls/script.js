@@ -5,6 +5,14 @@ canvas.height = window.innerHeight;
 
 let kinObs = []
 
+
+
+
+
+
+
+
+/*
 function setUp(){
 
   for (let i = 0; i < 100; i++) {
@@ -46,3 +54,4 @@ setUp();
 function getRandomNumber(min,max){
   return Math.floor(Math.random()*(max-min) + min);
 }
+*/

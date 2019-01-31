@@ -19,6 +19,13 @@ let gear4 = new Image();
 gear4.rot = 0.25;
 gear4.src = "120px-Gear_11.svg.png";
 
+let gear5 = new Image();
+gear5.rot = 0.25;
+gear5.src = "120px-Gear_11.svg.png";
+
+let gear6 = new Image();
+gear6.rot = 0.25;
+gear6.src = "120px-Gear_11.svg.png";
 
 gear.addEventListener('load',()=>{
   animate();
@@ -53,9 +60,24 @@ function animate(){
   context.drawImage(gear4,-gear4.width/2,-gear4.height/2);
   context.restore();
 
+  context.save();
+  context.translate(365,400);
+  context.rotate(gear5.rot);
+  context.drawImage(gear5,-gear5.width/2,-gear5.height/2);
+  context.restore();
+
+  context.save();
+  context.translate(250,400);
+  context.rotate(gear6.rot);
+  context.drawImage(gear6,-gear6.width/2,-gear6.height/2);
+  context.restore();
+
   gear.rot += 0.01;
   gear2.rot -= 0.01;
   gear3.rot += 0.01;
-  gear4.rot -= 0.01;  
+  gear4.rot -= 0.01;
+  gear5.rot -= 0.01;
+  gear6.rot += 0.01;
+
 
 }
